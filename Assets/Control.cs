@@ -15,12 +15,14 @@ public class Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W)){
+        if (Input.GetKeyDown(KeyCode.W))
+        {
             isRunning = !isRunning;
         }
-        if(isRunning){
+        if (isRunning)
+        {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
-        
+        Debug.Log("isRunning: " + isRunning);
     }
 }
