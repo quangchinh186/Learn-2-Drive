@@ -2,22 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Control : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool isRunning = false;
-    public float speed = 20.0f;
+    public static float speed = 20.0f;
 
     public Vector2 startPos;
-    public Vector2 direction;
+    public float desiredDuration = 5.0f;
+    public float eslapsedTime = 0.0f;
 
+    public static float topBonusSpeed = 70.0f;
 
+    private bool speedOn;
+    private bool brakeOn;
+    //public Time.deltaTime;
+    [SerializeField]
+    private AnimationCurve curve;
+    
     public float bonusSpeed = 0.0f;
+
+    public float topSpeed = 0.0f;
 
     void Start()
     {
-        isRunning = true;
-
+        speedOn = false;
+        brakeOn = false;
+    
 
     }
 
@@ -27,61 +39,80 @@ public class Control : MonoBehaviour
 
         if(Input.touchCount > 0)
         {
-            
-
             //for(int i = 0; i < Input.touchCount; i++)
             //{
                 Touch touch = Input.GetTouch(0);
-
-                // Move the cube if the screen has the finger moving.
                 switch (touch.phase)
                 {
-                    //When a touch has first been detected, change the message and record the starting position
                     case TouchPhase.Began:
                         // Record initial touch position.
                         startPos = touch.position;
-                        break;
-
-                    //Determine if the touch is a moving touch
-                    case TouchPhase.Moved:
-                        // Determine direction by comparing the current touch position with the initial one
                         if(startPos.x > Screen.width/2)
                         {
-                            direction = touch.position - startPos;
-                            bonusSpeed = (float)direction.magnitude;
+                            speedOn = true;
                         }
                         else
                         {
-                            bonusSpeed = - (float)direction.magnitude;
+                            brakeOn = true;
+                            //(float)direction.magnitude/5 < -20 ? -20 : - (float)direction.magnitude/5;
                         }
                         break;
+                    
                     case TouchPhase.Ended:
-                        // Report that the touch has ended when it ends
+                        //eslapsedTime = 0;
+
+                        brakeOn = speedOn = false;
+                        topSpeed = bonusSpeed;
+                        //bonusSpeed = 0;
                         break;
                 }
 
 
-            //}
-            
+            if(speedOn)
+            {
+                eslapsedTime = eslapsedTime + Time.deltaTime > 5 ? 5 : eslapsedTime + Time.deltaTime;
+                float percentage = eslapsedTime / desiredDuration;
+                bonusSpeed = Mathf.Lerp(0, 70, curve.Evaluate(percentage));
+            }
 
+            if(brakeOn)
+            {
+
+                bonusSpeed = bonusSpeed - 0.14f < 0 ? 0 :bonusSpeed - 0.14f;
+                //if(bonusSpeed < 0) eslapsedTime = 0;
+                eslapsedTime = bonusSpeed/topBonusSpeed * desiredDuration;
+                // change elapsedTime to spec with bonus speed
+            }
 
             speed = 20.0f + bonusSpeed;
         }
         else
         {
-            speed = 20.0f;
+            
+            if(!speedOn &  bonusSpeed > 0) 
+            {
+                eslapsedTime -= Time.deltaTime;
+                float percentage = eslapsedTime / desiredDuration;
+                bonusSpeed = Mathf.Lerp(topSpeed, 0, Mathf.SmoothStep(1,0,percentage));                   
+            }
+            
+            speed = 20.0f + bonusSpeed;
         }
 
 
-
-
-
-        if(Input.GetKeyDown(KeyCode.W)){
-            isRunning = !isRunning;
-        }
-        if(isRunning){
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        }
+      
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        
         
     }
+
+
+    void timerEnded()
+    {
+        //slowly return to 20km/h
+        eslapsedTime += Time.deltaTime;
+        float percentage = eslapsedTime / desiredDuration;
+        bonusSpeed = Mathf.Lerp(0, topBonusSpeed, curve.Evaluate(percentage));
+    }
+
 }
