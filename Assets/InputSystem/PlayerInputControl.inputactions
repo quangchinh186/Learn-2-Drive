@@ -1,0 +1,105 @@
+{
+    "name": "PlayerInputControl",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "da21a457-b1f9-4f44-926a-6efb51be1081",
+            "actions": [
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "1ec05b20-6853-4ccd-ba70-b306e6cb9bf6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Stop",
+                    "type": "Button",
+                    "id": "c7c196ae-1f56-4e6d-8547-1c58f29c23e9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Turn Left",
+                    "type": "Button",
+                    "id": "1c69c268-c65c-4045-8daf-838635c1ff0b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Turn Right",
+                    "type": "Button",
+                    "id": "9ecc7b66-8414-4ae7-823c-a3e853814d0d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "814dc3a3-220f-492b-a531-61c8ab2211fe",
+                    "path": "<Keyboard>/w",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9a60a14-f9eb-43a1-9105-2eaf0ab15481",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e874befe-0d41-4830-90ba-2b4121e9cf15",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4f451c2-1b70-45dc-b567-a734dbc2a182",
+                    "path": "<Keyboard>/a",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4657c25d-2bfe-45f5-a035-16d818745281",
+                    "path": "<Keyboard>/d",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
