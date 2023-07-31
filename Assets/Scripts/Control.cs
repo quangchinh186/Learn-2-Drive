@@ -6,7 +6,6 @@ using UnityEngine;
 public class Control : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool isRunning = false;
     public static float speed = 20.0f;
 
     public Vector2 startPos;
@@ -107,12 +106,6 @@ public class Control : MonoBehaviour
     }
 
 
-    void timerEnded()
-    {
-        //slowly return to 20km/h
-        eslapsedTime += Time.deltaTime;
-        float percentage = eslapsedTime / desiredDuration;
-        bonusSpeed = Mathf.Lerp(0, topBonusSpeed, curve.Evaluate(percentage));
-    }
+
 
 }
