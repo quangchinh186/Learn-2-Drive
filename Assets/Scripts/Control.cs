@@ -23,6 +23,7 @@ public class Control : MonoBehaviour
     public float bonusSpeed = 0.0f;
 
     public float topSpeed = 0.0f;
+    public float lowestSpeed = 0.0f;
 
     void Start()
     {
@@ -53,34 +54,32 @@ public class Control : MonoBehaviour
                         else
                         {
                             brakeOn = true;
-                            //(float)direction.magnitude/5 < -20 ? -20 : - (float)direction.magnitude/5;
                         }
                         break;
                     
                     case TouchPhase.Ended:
-                        //eslapsedTime = 0;
-
                         brakeOn = speedOn = false;
                         topSpeed = bonusSpeed;
-                        //bonusSpeed = 0;
                         break;
                 }
 
 
             if(speedOn)
             {
-                eslapsedTime = eslapsedTime + Time.deltaTime > 5 ? 5 : eslapsedTime + Time.deltaTime;
+                eslapsedTime = eslapsedTime + Time.deltaTime > desiredDuration ? desiredDuration : eslapsedTime + Time.deltaTime;
                 float percentage = eslapsedTime / desiredDuration;
-                bonusSpeed = Mathf.Lerp(0, 70, curve.Evaluate(percentage));
+                bonusSpeed = Mathf.Lerp(lowestSpeed, 70, curve.Evaluate(percentage));
             }
 
             if(brakeOn)
             {
-
-                bonusSpeed = bonusSpeed - 0.14f < 0 ? 0 :bonusSpeed - 0.14f;
-                //if(bonusSpeed < 0) eslapsedTime = 0;
+                bonusSpeed = bonusSpeed - 0.16f < -20 ? -20 :bonusSpeed - 0.16f;
                 eslapsedTime = bonusSpeed/topBonusSpeed * desiredDuration;
-                // change elapsedTime to spec with bonus speed
+                lowestSpeed = bonusSpeed;
+                if(bonusSpeed <= -20) 
+                {
+                    eslapsedTime = 0;
+                }
             }
 
             speed = 20.0f + bonusSpeed;
@@ -94,6 +93,7 @@ public class Control : MonoBehaviour
                 float percentage = eslapsedTime / desiredDuration;
                 bonusSpeed = Mathf.Lerp(topSpeed, 0, Mathf.SmoothStep(1,0,percentage));                   
             }
+
             
             speed = 20.0f + bonusSpeed;
         }

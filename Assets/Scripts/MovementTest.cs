@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementTest : MonoBehaviour
 {
-    public float TurnSpeed = 20.0f;
+    public float TurnSpeed = 40.0f;
 
     void Start(){
         Input.gyro.enabled = true;
