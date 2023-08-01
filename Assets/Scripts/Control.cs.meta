@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Control.cs.meta
 guid: d90542ba6b625a647969b20de76b06d6
+========
+guid: 931586f19ae5a3a4caa7b650896768a6
+>>>>>>>> main:Assets/Scripts/MovementTest.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
