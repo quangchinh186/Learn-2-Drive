@@ -9,11 +9,41 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: d742f4ca2041a7b48b6bd824fcf166a6
   - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 4.unity
+    guid: dcaf80a4b122bf3448c28832ed4cb2ff
+  - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 5.unity
+    guid: 17003bab0c2d0664badc1fb4c6822c17
+  - enabled: 1
     path: Assets/Scenes/SelectMode.unity
     guid: c8bc4af5626253c408d6ba0ce235c55b
   - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 6.unity
+    guid: c36af22c7e6f781499758533d8903a71
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
+  - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 9.unity
+    guid: ebce59cdc55e85e46a284dd1ea561814
+  - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 10.unity
+    guid: 68e543e1b3d0fe2419f4b9282784191e
+  - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 8.unity
+    guid: 8c95a78d780e4114d936dd79bd778888
+  - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 3.unity
+    guid: 2a145b0fd69ad1c449d62b7528e2a10a
+  - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 7.unity
+    guid: 6e12c0af474c48e419ba3a6cceb257fd
+  - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 1.unity
+    guid: 372f536ac4b956a43b82cd8a82a5ca97
+  - enabled: 1
+    path: Assets/Scenes/LevelPack/Level 2.unity
+    guid: 03b2f00d52fe65b4497549060d469a85
   - enabled: 1
     path: Assets/Scenes/Mode-2-Menu.unity
     guid: 052b122800c74bc40b65b4bfbe0362a7
