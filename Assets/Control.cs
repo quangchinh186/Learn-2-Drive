@@ -48,9 +48,9 @@ public class Control : MonoBehaviour
     // Update is called once per frame
     void Update() {
         move();     
-        if (isMoving)
+/*        if (isMoving)
         {
             CarMove();
-        }
+        }*/
     }
 }
