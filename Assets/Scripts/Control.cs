@@ -32,6 +32,14 @@ public class Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speedControl();
+        speedCounter.text = ((int)speed).ToString() + "km/h";
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+    }
+
+
+    void speedControl()
+    {
         if(Input.touchCount > 0)
         {
             //for(int i = 0; i < Input.touchCount; i++)
@@ -72,7 +80,7 @@ public class Control : MonoBehaviour
                     eslapsedTime = 0;
                 }
             }
-            speed = 20.0f + bonusSpeed;
+           
         }
         else
         {
@@ -82,9 +90,8 @@ public class Control : MonoBehaviour
                 float percentage = eslapsedTime / desiredDuration;
                 bonusSpeed = Mathf.Lerp(topSpeed, 0, Mathf.SmoothStep(1,0,percentage));                   
             }      
-            speed = 20.0f + bonusSpeed;
+            
         }
-        speedCounter.text = ((int)speed).ToString() + "km/h";
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        speed = 20.0f + bonusSpeed;
     }
 }
