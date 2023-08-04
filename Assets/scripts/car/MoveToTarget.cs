@@ -3,7 +3,7 @@ using UnityEngine;
 public class MoveToTarget : MonoBehaviour {
   [SerializeField]
   GameObject target;
-  private isMove = false; 
+  private bool isMove = false; 
   float speed = 20.0f;
 
   private void PlayerOnCheck() {
