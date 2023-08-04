@@ -4,7 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: "Assets/Menu/Bi\u1EC3nB\xE1o-tempo.unity"
+    guid: ecca3e2b9c08bc24586cef93dfa7a139
+  - enabled: 1
+    path: Assets/Menu/Menu Scenes/Menu.unity
+    guid: 713704faf3e25af4cad46515124e9e35
+  - enabled: 1
+    path: Assets/Menu/Menu Scenes/Mode-1-Menu.unity
+    guid: 7ed7c3991ce524f43ab5aac5395e59a8
+  - enabled: 1
+    path: Assets/Menu/Menu Scenes/Mode-2-Menu.unity
+    guid: ce1ddb0ec66a7c346b2b78b39f8f244a
+  - enabled: 1
+    path: Assets/Menu/Menu Scenes/SelectMode.unity
+    guid: 2e11d292a9a14204fb1548585dc77c03
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 7e36378520160914ea928bcbb3afdb8b, type: 2}
