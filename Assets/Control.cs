@@ -46,11 +46,16 @@ public class Control : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
-        move();     
-/*        if (isMoving)
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            CarMove();
-        }*/
+            isRunning = !isRunning;
+        }
+        if (isRunning)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        }
+        Debug.Log("isRunning: " + isRunning);
     }
 }

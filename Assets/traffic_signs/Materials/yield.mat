@@ -39,12 +39,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
+<<<<<<< HEAD
         m_Scale: {x: 1.57, y: 1.76}
         m_Offset: {x: 0.59, y: 2.16}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 82d0f985fb80c7849bfa3a39980a178c, type: 3}
         m_Scale: {x: 1.57, y: 1.76}
         m_Offset: {x: 0.59, y: 2.16}
+=======
+        m_Scale: {x: 0.29, y: 0.18}
+        m_Offset: {x: -1.036, y: 2.861}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 370b33cebe2ddc246ad6632004152be0, type: 3}
+        m_Scale: {x: 0.29, y: 0.18}
+        m_Offset: {x: -1.036, y: 2.861}
+>>>>>>> menuMerge
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
