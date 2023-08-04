@@ -26,7 +26,7 @@ public class LightControl : MonoBehaviour
         //Debug.Log(timer);
         if(timer > 0){
             timer -= Time.deltaTime;
-            timeCounter.text = ((int)timer).ToString();
+            timeCounter.text = (timer).ToString();
         } else {
             currentColor = currentColor == 0 ? 1 : 0;
             timer = duration;

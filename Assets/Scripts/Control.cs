@@ -49,9 +49,14 @@ public class Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = Vector3.right;
+        getDirection();
         speedControl();
         speedCounter.text = ((int)speed).ToString() + "km/h";
+    }
+
+    void getDirection(){
+        Debug.Log("y rota: " + transform.rotation.y);
+        movement = Vector3.forward;
     }
 
     void FixedUpdate(){
