@@ -11,12 +11,13 @@ public class MovementTest : MonoBehaviour
     }
 
     void Update() {
-        Debug.Log(Input.acceleration.x);
-        float turnValue = Input.acceleration.x;
-        if(Mathf.Abs(turnValue) < 0.1){
+        //Debug.Log(Input.acceleration.x);
+        float turnValue = Input.acceleration.x * 100;
+        if(Mathf.Abs(turnValue) < 20){
             turnValue = 0;
         }
-        transform.Rotate(Vector3.up, turnValue * 100 * Time.deltaTime);
+        //Debug.Log(turnValue);
+        transform.Rotate(Vector3.up, turnValue * Time.deltaTime);
     }
 
     public void run(){

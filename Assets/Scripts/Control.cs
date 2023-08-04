@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Control : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static float speed = 20.0f;
+    public static float speed = 0f;
 
     public Vector2 startPos;
     public float desiredDuration = 5.0f;
@@ -21,70 +21,83 @@ public class Control : MonoBehaviour
     public float topSpeed = 0.0f;
     public float lowestSpeed = 0.0f;
     public Text speedCounter;
+    public Rigidbody rb;
+    public Vector3 movement;
 
     void Start()
     {
+        rb = this.GetComponent<Rigidbody>();
         speedOn = false;
         brakeOn = false;
         speedCounter.text = speed.ToString() + "km/h";
     }
 
+    public void bikeBreaks(){
+        brakeOn = true;
+    }
+    public void unBreak(){
+        brakeOn = false;
+        topSpeed = bonusSpeed;
+    }
+    public void speedUp(){
+        speedOn = true;
+    }
+    public void speedDown(){
+        speedOn = false;
+        topSpeed = bonusSpeed;
+    }
     // Update is called once per frame
     void Update()
     {
+        movement = Vector3.right;
+        speedControl();
+        speedCounter.text = ((int)speed).ToString() + "km/h";
+    }
+
+    void FixedUpdate(){
+        moveCharacter(movement);
+    }
+    void moveCharacter(Vector3 direction){
+        rb.velocity = direction * speed;
+    }
+
+    void speedControl()
+    {
         if(Input.touchCount > 0)
-        {
-            //for(int i = 0; i < Input.touchCount; i++)
-            //{
-                Touch touch = Input.GetTouch(0);
-                switch (touch.phase)
-                {
-                    case TouchPhase.Began:
-                        // Record initial touch position.
-                        startPos = touch.position;
-                        if(startPos.x > Screen.width/2)
-                        {
-                            speedOn = true;
-                        }
-                        else
-                        {
-                            brakeOn = true;
-                        }
-                        break;      
-                    case TouchPhase.Ended:
-                        brakeOn = speedOn = false;
-                        topSpeed = bonusSpeed;
-                        break;
-                }
+        {    
             if(speedOn)
             {
                 eslapsedTime = eslapsedTime + Time.deltaTime > desiredDuration ? desiredDuration : eslapsedTime + Time.deltaTime;
                 float percentage = eslapsedTime / desiredDuration;
-                bonusSpeed = Mathf.Lerp(lowestSpeed, 70, curve.Evaluate(percentage));
+                bonusSpeed = Mathf.Lerp(lowestSpeed, topBonusSpeed, curve.Evaluate(percentage));
             }
             if(brakeOn)
             {
-                bonusSpeed = bonusSpeed - 0.16f < -20 ? -20 :bonusSpeed - 0.16f;
+                bonusSpeed = bonusSpeed - 0.16f < 0 ? 0 :bonusSpeed - 0.16f;
                 eslapsedTime = bonusSpeed/topBonusSpeed * desiredDuration;
                 lowestSpeed = bonusSpeed;
-                if(bonusSpeed <= -20) 
+                if(bonusSpeed <= 0) 
                 {
                     eslapsedTime = 0;
                 }
             }
-            speed = 20.0f + bonusSpeed;
+           
         }
         else
         {
-            if(!speedOn &  bonusSpeed > 0) 
+            if(eslapsedTime > 0) 
             {
-                eslapsedTime -= Time.deltaTime;
+                eslapsedTime = eslapsedTime - Time.deltaTime ;
+                if(eslapsedTime < 0) eslapsedTime = 0;
                 float percentage = eslapsedTime / desiredDuration;
                 bonusSpeed = Mathf.Lerp(topSpeed, 0, Mathf.SmoothStep(1,0,percentage));                   
             }      
-            speed = 20.0f + bonusSpeed;
+            
         }
-        speedCounter.text = ((int)speed).ToString() + "km/h";
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        speed = bonusSpeed;
     }
+
 }
+
+
+
