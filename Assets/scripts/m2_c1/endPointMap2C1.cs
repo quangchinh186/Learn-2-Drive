@@ -10,10 +10,10 @@ public class endPointMap2C1 : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player")
         {
-            map2_c1.isCompleted = false;
+            map2_c1.isCompleted = true;
         }
     }
 

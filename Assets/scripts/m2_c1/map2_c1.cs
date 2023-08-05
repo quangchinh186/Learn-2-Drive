@@ -26,7 +26,7 @@ public class map2_c1 : MonoBehaviour
     void Update()
     {
         playerPoint.text = playerScore.ToString() + "/" + maxPoint;
-        if(playerScore <= 2)
+        if(playerScore <= maxPoint/2)
         {
             isAlive = false;
         }
@@ -35,6 +35,7 @@ public class map2_c1 : MonoBehaviour
             Debug.Log("Im dead AF");
         }
         if(isCompleted) {
+            Debug.Log("Chuyen scene");
             //chuyen sang scene khac
         }
 
