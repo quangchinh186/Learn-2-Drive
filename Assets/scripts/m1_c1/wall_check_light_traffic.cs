@@ -14,14 +14,12 @@ public class wall_check_light_traffic : MonoBehaviour
         }
         if (lightControl.currentColor == 0) {
             if (ReturnDirection.direction(gameObject, other.gameObject) == "right") {
-                Debug.Log("break rule");
+                score_board_1.score -= 1;
             }
         } else if (lightControl.currentColor == 1) {
             if (ReturnDirection.direction(gameObject, other.gameObject) == "left") {
-                Debug.Log("break rule");
+                score_board_1.score -= 1;
             }
-        } else {
-            Debug.Log("good");
         }
     }
     // Start is called before the first frame update

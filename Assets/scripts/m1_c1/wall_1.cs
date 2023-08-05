@@ -16,12 +16,16 @@ public class wall_1 : MonoBehaviour {
   }
 
   private void OnTriggerExit(Collider other) {
-    
+    if (!wall_check_1.pass) {
+      score_board_1.score -= 1;
+    }
   }
 
   private void Update() {
     if (car_1Move) {
       triggerCar1();
     }
+    Debug.Log("hai");
+    Debug.Log(score_board_1.score);
   }
 }

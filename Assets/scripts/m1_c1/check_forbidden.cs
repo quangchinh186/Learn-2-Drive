@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class check_forbidden : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other) {
+    bool enable = false;
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Player") {
+            if (!enable) {
+                score_board_1.score -= 1;
+                enable = true;
+            }   
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.gameObject.tag == "Player") {
+            enable = false;
+        }
     }
 
     // Start is called before the first frame update
