@@ -10,6 +10,7 @@ public class Limit30_Wall : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player" & !isEnabled)
         {
+            
             if(Control.speed > 30)
             {
                 map2_c1.playerScore--;

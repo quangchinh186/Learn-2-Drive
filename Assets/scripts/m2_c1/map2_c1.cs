@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class map2_c1 : MonoBehaviour
 {
-
     public float score;
     Text playerPoint;
-    public static float playerScore = 4.0f;
+    public static float playerScore = 6.0f;
     public static bool isAlive = true;
     private const float maxPoint = 6.0f;
 
