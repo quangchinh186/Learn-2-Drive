@@ -20,9 +20,20 @@ public class PlayerStat : MonoBehaviour
         Debug.Log("is wearing helmet: "+ helmetOn);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void stopSignal(){
+        isSignalLeft = false;
+        isSignalRight = false;
+    }
+
+    public void signalLeft(){
+        if(isSignalRight) isSignalRight = false;
+        isSignalLeft = true;
+        Debug.Log("left");
+    }
+
+    public void signalRight(){
+        if(isSignalLeft) isSignalLeft = false;
+        isSignalRight = true;
+        Debug.Log("right");
     }
 }
