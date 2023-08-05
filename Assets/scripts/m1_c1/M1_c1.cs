@@ -10,7 +10,7 @@ public class M1_c1 : MonoBehaviour
         GameObject moveToObject = GameObject.FindGameObjectWithTag("moveToObject");
         GameObject[] cars = GameObject.FindGameObjectsWithTag("car_1");
         foreach (GameObject car in cars)
-        {
+        {   
             Debug.Log("counting....");
             car.transform.LookAt(moveToObject.transform.position);
             car.transform.Translate(Vector3.forward * 20.0f * Time.deltaTime);
