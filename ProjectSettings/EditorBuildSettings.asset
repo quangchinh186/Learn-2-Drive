@@ -27,8 +27,14 @@ EditorBuildSettings:
     path: Assets/Scenes/C1/map1_c2.unity
     guid: eff0f428a03ec7d47a056a5253e75538
   - enabled: 1
+    path: Assets/Menu/Menu Scenes/LoadingBar.unity
+    guid: f404c7e0aa9c37d4a98344ca9db1e7b4
+  - enabled: 1
     path: Assets/Scenes/C1/map3_c1.unity
     guid: ef2d605f584e7bd47814a8e199f5178e
+  - enabled: 1
+    path: Assets/Menu/Menu Scenes/NextBar.unity
+    guid: dc5f9a9cd5726d44aafca643cbf81e52
   - enabled: 1
     path: Assets/Scenes/C1/map2_c1.unity
     guid: 66a5e61a7a1e82b449c32f33f308eca6

@@ -10,13 +10,14 @@ public class LevelSelector : MonoBehaviour
     public int levelY;
     public Text levelName;
 
+    // Load Level = map name at every button name
     void Start()
     {
         levelName.text = "map" + levelX.ToString() + "_c" + levelY.ToString();
     }
 
-    public void OpenScene()
-    {
-        SceneManager.LoadScene("map" + levelX.ToString() + "_c" + levelY.ToString());
-    }
+    // public void OpenScene()
+    // {
+    //     SceneManager.LoadScene("map" + levelX.ToString() + "_c" + levelY.ToString());
+    // }
 }
