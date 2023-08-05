@@ -50,7 +50,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Back to main menu");
         Time.timeScale = 1f;
         GameIsPaused = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Mode-1-Menu");
     }
 
     public void Restart()
