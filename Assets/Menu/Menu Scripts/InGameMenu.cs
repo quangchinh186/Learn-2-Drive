@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class InGameMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
+    public static bool GameIsOver = false;
 
     public GameObject pauseMenuUI;
+    public GameObject gameOverUI;
     // Update is called once per frame
     void Update()
     {
+        //hit escape to pause
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
@@ -21,6 +24,24 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+        //hit q to force to game over
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        //set the game over UI to active
+        Debug.Log("Game Over");
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsOver = true;
+
+        //set the GameOver-Canvas to active
+        GameObject gameOverCanvas = GameObject.Find("GameOver-Canvas");
+        gameOverCanvas.SetActive(true);
     }
 
     public void Resume()
@@ -61,5 +82,4 @@ public class PauseMenu : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(gameObject.scene.name);
 
     }
-
 }
