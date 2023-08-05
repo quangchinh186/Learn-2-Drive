@@ -7,7 +7,6 @@ public class Control : MonoBehaviour
 {
     // Start is called before the first frame update
     public static float speed = 0f;
-
     public Vector2 startPos;
     public float desiredDuration = 5.0f;
     public float eslapsedTime = 0.0f;
@@ -22,7 +21,7 @@ public class Control : MonoBehaviour
     public float lowestSpeed = 0.0f;
     public Text speedCounter;
     public Rigidbody rb;
-    public Vector3 movement;
+    public static Vector3 movement;
 
     public float rotateAngle;
 
