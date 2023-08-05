@@ -16,8 +16,8 @@ public class LevelSelector : MonoBehaviour
         levelName.text = "map" + levelX.ToString() + "_c" + levelY.ToString();
     }
 
-    // public void OpenScene()
-    // {
-    //     SceneManager.LoadScene("map" + levelX.ToString() + "_c" + levelY.ToString());
-    // }
+    public void OpenScene()
+    {
+        SceneManager.LoadScene("map" + levelX.ToString() + "_c" + levelY.ToString());
+    }
 }
