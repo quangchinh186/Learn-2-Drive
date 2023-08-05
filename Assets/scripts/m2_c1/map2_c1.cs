@@ -7,9 +7,9 @@ public class map2_c1 : MonoBehaviour
 {
     public float score;
     Text playerPoint;
-    public static float playerScore = 6.0f;
+    public static float playerScore = 7.0f;
     public static bool isAlive = true;
-    private const float maxPoint = 6.0f;
+    private const float maxPoint = 7.0f;
 
     public static bool isCompleted = false;
 
