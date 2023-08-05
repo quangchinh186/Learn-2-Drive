@@ -260,9 +260,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.2735849, g: 0.012044593, b: 0.032953955, a: 1}
-  m_Intensity: 179.7
+  m_Intensity: 30
   m_Range: 9.87
-  m_SpotAngle: 179
+  m_SpotAngle: 60
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeCounter: {fileID: 7570273683593202142}
+  currentColor: 0
 --- !u!1 &7570273683593202141
 GameObject:
   m_ObjectHideFlags: 0

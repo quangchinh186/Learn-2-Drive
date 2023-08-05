@@ -7,9 +7,10 @@ public class LightControl : MonoBehaviour
 {
     public Text timeCounter;
     float duration = 20.0f; 
-    float timer;
-    int currentColor = 0;
     Color[] cls = {Color.red, Color.green};
+    float timer;
+    [SerializeField]
+    public int currentColor;
 
     Light lt;
 
@@ -17,6 +18,7 @@ public class LightControl : MonoBehaviour
     {
         lt = GetComponent<Light>();
         timer = duration;
+        lt.color = cls[currentColor];
         timeCounter.color = cls[currentColor];
     }
 

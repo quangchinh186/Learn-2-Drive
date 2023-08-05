@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class Control : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static float speed = 0.0f;
-
+    public static float speed = 0f;
     public Vector2 startPos;
     public float desiredDuration = 5.0f;
     public float eslapsedTime = 0.0f;
-    public const float topBonusSpeed = 30.0f;
+    public static float topBonusSpeed = 70.0f;
     private bool speedOn;
     private bool brakeOn;
     //public Time.deltaTime;
@@ -48,13 +47,12 @@ public class Control : MonoBehaviour
     public void speedDown(){
         speedOn = false;
         topSpeed = bonusSpeed;
-        topSpeed = topSpeed > 0 ? topSpeed : 0;
     }
     // Update is called once per frame
     void Update()
     {
         rotateAngle = (90 - transform.eulerAngles.y) * Mathf.PI/180;
-        movement = new Vector3(Mathf.Cos(rotateAngle), -0.6f, Mathf.Sin(rotateAngle));      
+        movement = new Vector3(Mathf.Cos(rotateAngle), -0.1f, Mathf.Sin(rotateAngle));      
         speedControl();
         speedCounter.text = ((int)speed).ToString() + "km/h";
     }
@@ -63,7 +61,9 @@ public class Control : MonoBehaviour
         moveCharacter(movement);
     }
     void moveCharacter(Vector3 direction){
-        rb.velocity = direction * speed * 1/0.7f;
+        rb.velocity = direction * speed;
+        
+        //rb.AddForce(direction * speed, ForceMode.VelocityChange);
     }
 
     void speedControl()
@@ -96,14 +96,9 @@ public class Control : MonoBehaviour
                 if(eslapsedTime < 0) eslapsedTime = 0;
                 float percentage = eslapsedTime / desiredDuration;
                 bonusSpeed = Mathf.Lerp(topSpeed, 0, Mathf.SmoothStep(1,0,percentage));                   
-            }    
-            else
-            {
-                //bug vcl
-            }  
+            }      
             
         }
-
         speed = 20.0f + bonusSpeed;
     }
 
