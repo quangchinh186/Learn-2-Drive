@@ -7,12 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: curve
+  m_Name: bien101
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ValidKeywords:
-  - _EMISSION
+  m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 1
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -39,21 +38,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-<<<<<<< HEAD
-        m_Scale: {x: 0.304, y: 0.302}
-        m_Offset: {x: -0.008, y: 0.103}
+        m_Scale: {x: 1.77, y: 1.84}
+        m_Offset: {x: -0.16, y: 0.12}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f789125dbf16a3e4994e79b671b35c00, type: 3}
-        m_Scale: {x: 0.304, y: 0.302}
-        m_Offset: {x: -0.008, y: 0.103}
-=======
-        m_Scale: {x: 1.46, y: 1.76}
-        m_Offset: {x: -0.51, y: -1.81}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 82d0f985fb80c7849bfa3a39980a178c, type: 3}
-        m_Scale: {x: 1.46, y: 1.76}
-        m_Offset: {x: -0.51, y: -1.81}
->>>>>>> map1_c1
+        m_Texture: {fileID: 2800000, guid: 4edbc1562dcd61943849c2dc681656bb, type: 3}
+        m_Scale: {x: 1.77, y: 1.84}
+        m_Offset: {x: -0.16, y: 0.12}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}

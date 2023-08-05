@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementTest : MonoBehaviour
 {
-    public float TurnSpeed = 40.0f;
+    public float TurnSpeed = 1.0f;
     public float defaultRotateAngle = 90.0f;
 
     void Start(){

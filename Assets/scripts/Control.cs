@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class Control : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static float speed = 0f;
+    public static float speed = 0.0f;
 
     public Vector2 startPos;
     public float desiredDuration = 5.0f;
     public float eslapsedTime = 0.0f;
-    public static float topBonusSpeed = 70.0f;
+    public const float topBonusSpeed = 30.0f;
     private bool speedOn;
     private bool brakeOn;
     //public Time.deltaTime;
@@ -22,7 +22,7 @@ public class Control : MonoBehaviour
     public float lowestSpeed = 0.0f;
     public Text speedCounter;
     public Rigidbody rb;
-    public Vector3 movement;
+    public static Vector3 movement;
 
     public float rotateAngle;
 
@@ -48,6 +48,7 @@ public class Control : MonoBehaviour
     public void speedDown(){
         speedOn = false;
         topSpeed = bonusSpeed;
+        topSpeed = topSpeed > 0 ? topSpeed : 0;
     }
     // Update is called once per frame
     void Update()
@@ -95,9 +96,14 @@ public class Control : MonoBehaviour
                 if(eslapsedTime < 0) eslapsedTime = 0;
                 float percentage = eslapsedTime / desiredDuration;
                 bonusSpeed = Mathf.Lerp(topSpeed, 0, Mathf.SmoothStep(1,0,percentage));                   
-            }      
+            }    
+            else
+            {
+                //bug vcl
+            }  
             
         }
+
         speed = 20.0f + bonusSpeed;
     }
 
