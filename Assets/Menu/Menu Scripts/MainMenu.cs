@@ -12,6 +12,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("SelectMode");
     }
 
+    public void seeSignCollections()
+    {
+        SceneManager.LoadScene("Sign-Collections");
+    }
+
     //Quit the game
     public void QuitGame()
     {
