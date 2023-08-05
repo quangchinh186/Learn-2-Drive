@@ -16,12 +16,6 @@ public class Limit30_Wall : MonoBehaviour
                 Debug.Log("Exceed speed 30" + map2_c1.playerScore);
                 isEnabled = true;
             }
-            else if(Control.movement.z < 0)
-            {
-                map2_c1.playerScore--;
-                Debug.Log("Di nguoc duong vong xuyen");
-                isEnabled = true;
-            }
         }
         
     }

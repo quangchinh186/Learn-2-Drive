@@ -25,6 +25,7 @@ public class StudentBehavior : MonoBehaviour
             {
                 dirZ = -1;
             }
+            map2_c1.isAlive = false;
             rb.AddForce(0, 200.0f, dirZ * 100.0f, ForceMode.Impulse);
         }
     }
