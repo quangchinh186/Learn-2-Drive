@@ -12,7 +12,6 @@ public class NoStop_Wall : MonoBehaviour
 
 
     private void OnTriggerStay(Collider other) {
-        Debug.Log("hwr");
         if (other.gameObject.tag == "Player" & !isEnabled)
         {
             if(playerSpeed <= 0) 
@@ -42,6 +41,5 @@ public class NoStop_Wall : MonoBehaviour
     void Update()
     {
         playerSpeed = Control.speed;
-        Debug.Log("Control.speed = " + playerSpeed);
     }
 }
