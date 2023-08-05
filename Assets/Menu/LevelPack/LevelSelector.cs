@@ -6,18 +6,17 @@ using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
 {
-    public int level;
+    public int levelX;
+    public int levelY;
     public Text levelName;
-    // Start is called before the first frame update
+
     void Start()
     {
-        levelName.text = level.ToString();
-
+        levelName.text = "map" + levelX.ToString() + "_c" + levelY.ToString();
     }
-    
+
     public void OpenScene()
     {
-        SceneManager.LoadScene("Level " + level.ToString());
+        SceneManager.LoadScene("map" + levelX.ToString() + "_c" + levelY.ToString());
     }
-    
 }
