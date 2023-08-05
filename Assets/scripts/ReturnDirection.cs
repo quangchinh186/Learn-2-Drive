@@ -29,6 +29,6 @@ public static class ReturnDirection
 				return "left";
 			}	
 		}
-        return "something wrong, i can feel it";
+        return "";
 	}
 }

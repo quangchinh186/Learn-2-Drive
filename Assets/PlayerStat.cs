@@ -7,8 +7,8 @@ public class PlayerStat : MonoBehaviour
     // Start is called before the first frame update
     private int point;
     private bool helmetOn = false;
-    public bool isSignalLeft = false;
-    public bool isSignalRight = false;
+    public static bool isSignalLeft = false;
+    public static bool isSignalRight = false;
 
     void Start()
     {
@@ -35,5 +35,8 @@ public class PlayerStat : MonoBehaviour
         if(isSignalLeft) isSignalLeft = false;
         isSignalRight = true;
         Debug.Log("right");
+    }
+    private void Update() {
+        Debug.Log("Stats" + isSignalRight);
     }
 }

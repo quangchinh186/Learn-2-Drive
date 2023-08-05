@@ -10,7 +10,7 @@ public class Control : MonoBehaviour
     public Vector2 startPos;
     public float desiredDuration = 5.0f;
     public float eslapsedTime = 0.0f;
-    public static float topBonusSpeed = 70.0f;
+    public static float topBonusSpeed = 30.0f;
     private bool speedOn;
     private bool brakeOn;
     //public Time.deltaTime;
@@ -52,7 +52,7 @@ public class Control : MonoBehaviour
     void Update()
     {
         rotateAngle = (90 - transform.eulerAngles.y) * Mathf.PI/180;
-        movement = new Vector3(Mathf.Cos(rotateAngle), -0.1f, Mathf.Sin(rotateAngle));      
+        movement = new Vector3(Mathf.Cos(rotateAngle), -0.6f, Mathf.Sin(rotateAngle));      
         speedControl();
         speedCounter.text = ((int)speed).ToString() + "km/h";
     }
@@ -61,7 +61,7 @@ public class Control : MonoBehaviour
         moveCharacter(movement);
     }
     void moveCharacter(Vector3 direction){
-        rb.velocity = direction * speed;
+        rb.velocity = direction * speed * 1/0.7f;
         
         //rb.AddForce(direction * speed, ForceMode.VelocityChange);
     }
@@ -100,6 +100,7 @@ public class Control : MonoBehaviour
             
         }
         speed = 20.0f + bonusSpeed;
+        
     }
 
 }

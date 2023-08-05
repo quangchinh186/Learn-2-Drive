@@ -14,6 +14,8 @@ public class NoStop_Wall : MonoBehaviour
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Player" & !isEnabled)
         {
+            string dir = ReturnDirection.direction(gameObject, other.gameObject);
+            Debug.Log(dir);
             if(playerSpeed <= 0) 
             {
                 map2_c1.playerScore--;
@@ -28,9 +30,6 @@ public class NoStop_Wall : MonoBehaviour
         Debug.Log("Exit No Stop Zone");
     }
    
-    //private void OnTriggerExit(Collider other) {
-    //    isEnabled = false;
-    //}
     void Start()
     {
         //playerSpeed = 0.0f;
