@@ -12,12 +12,9 @@ public static class ReturnDirection
 		Ray MyRay = new Ray( ObjectHit.transform.position, direction );
 		
 		if ( Physics.Raycast( MyRay, out MyRayHit ) ){
-				
 			if ( MyRayHit.collider != null ){
-				
 				Vector3 MyNormal = MyRayHit.normal;
 				MyNormal = MyRayHit.transform.TransformDirection( MyNormal );
-				
 				if( MyNormal == MyRayHit.transform.up ){ 
                     return "top";
                 } else if( MyNormal == -MyRayHit.transform.up ){ 

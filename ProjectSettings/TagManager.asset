@@ -8,6 +8,7 @@ TagManager:
   - wall
   - moveToObject
   - mto1
+  - traffic_light
   layers:
   - Default
   - TransparentFX

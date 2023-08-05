@@ -16,7 +16,7 @@ public class lookAtCamera :MonoBehaviour
         mainCam = Camera.main.transform;
         target = transform.parent;
         worldSpaceCanvas = GameObject.FindObjectOfType<Canvas>().transform;
-        transform.SetParent(worldSpaceCanvas);
+        //transform.SetParent(worldSpaceCanvas);
 
     }
     void Update ()
