@@ -15,6 +15,10 @@ public class wall_1 : MonoBehaviour {
     car_1Move = true;
   }
 
+  private void OnTriggerExit(Collider other) {
+    
+  }
+
   private void Update() {
     if (car_1Move) {
       triggerCar1();

@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
             transform.Rotate(Vector3.up * Time.deltaTime * speed);
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
-        {
+        {       
             transform.Rotate(Vector3.down * Time.deltaTime * speed);
         }
     }
