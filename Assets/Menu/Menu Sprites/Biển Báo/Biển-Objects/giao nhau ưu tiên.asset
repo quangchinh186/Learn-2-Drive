@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16038bd017544ab42a7f80271633c48a, type: 3}
   m_Name: "giao nhau \u01B0u ti\xEAn"
   m_EditorClassIdentifier: 
-  name: 
-  image: {fileID: 0}
+  name: "giao nhau \u01B0u ti\xEAn"
+  image: {fileID: 21300000, guid: 280531941e98c54458e62fbd811a64a2, type: 3}
