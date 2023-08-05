@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: c314efbbdb0e8f143b5be4f62edc8559
+=======
 guid: c9cecd32812c3ab4ba5c5e1bf600c1dc
+>>>>>>> map1_c1
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
