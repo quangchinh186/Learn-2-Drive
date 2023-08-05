@@ -10,7 +10,7 @@ public class check_forbidden : MonoBehaviour
             if (!enable) {
                 score_board_1.score -= 1;
                 enable = true;
-            }
+            }   
         }
     }
 

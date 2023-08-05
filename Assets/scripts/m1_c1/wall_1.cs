@@ -25,6 +25,7 @@ public class wall_1 : MonoBehaviour {
     if (car_1Move) {
       triggerCar1();
     }
+    Debug.Log("hai");
     Debug.Log(score_board_1.score);
   }
 }
