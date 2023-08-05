@@ -13,6 +13,7 @@ public class toggle : MonoBehaviour
     }
 
     public void changeColor(bool isOn){
+        if(image == null) return;
         Debug.Log(isOn);
         if(isOn){
             image.color = Color.green;
