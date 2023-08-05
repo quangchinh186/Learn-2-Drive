@@ -53,7 +53,7 @@ public class Control : MonoBehaviour
     void Update()
     {
         rotateAngle = (90 - transform.eulerAngles.y) * Mathf.PI/180;
-        movement = new Vector3(Mathf.Cos(rotateAngle), 0, Mathf.Sin(rotateAngle));      
+        movement = new Vector3(Mathf.Cos(rotateAngle), -0.1f, Mathf.Sin(rotateAngle));      
         speedControl();
         speedCounter.text = ((int)speed).ToString() + "km/h";
     }
