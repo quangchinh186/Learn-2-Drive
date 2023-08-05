@@ -24,8 +24,11 @@ public class Control : MonoBehaviour
     public Rigidbody rb;
     public Vector3 movement;
 
+    public float rotateAngle;
+
     void Start()
     {
+        rotateAngle = 0.0f;
         rb = this.GetComponent<Rigidbody>();
         speedOn = false;
         brakeOn = false;
@@ -49,14 +52,10 @@ public class Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        getDirection();
+        rotateAngle = (90 - transform.eulerAngles.y) * Mathf.PI/180;
+        movement = new Vector3(Mathf.Cos(rotateAngle), 0, Mathf.Sin(rotateAngle));      
         speedControl();
         speedCounter.text = ((int)speed).ToString() + "km/h";
-    }
-
-    void getDirection(){
-        Debug.Log("y rota: " + transform.rotation.y);
-        movement = Vector3.forward;
     }
 
     void FixedUpdate(){
@@ -78,7 +77,7 @@ public class Control : MonoBehaviour
             }
             if(brakeOn)
             {
-                bonusSpeed = bonusSpeed - 0.16f < 0 ? 0 :bonusSpeed - 0.16f;
+                bonusSpeed = bonusSpeed - 0.16f < -20 ? -20 :bonusSpeed - 0.16f;
                 eslapsedTime = bonusSpeed/topBonusSpeed * desiredDuration;
                 lowestSpeed = bonusSpeed;
                 if(bonusSpeed <= 0) 
@@ -99,7 +98,7 @@ public class Control : MonoBehaviour
             }      
             
         }
-        speed = bonusSpeed;
+        speed = 20.0f + bonusSpeed;
     }
 
 }
