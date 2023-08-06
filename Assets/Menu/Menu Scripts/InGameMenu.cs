@@ -12,6 +12,9 @@ public class InGameMenu : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject nextLevelUI;
     // Update is called once per frame
+
+    public static InGameMenu Instance;
+
     void Update()
     {
         //hit escape to pause
@@ -114,4 +117,16 @@ public class InGameMenu : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(gameObject.scene.name);
 
     }
+
+    public void Awake() {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else 
+        {
+            Destroy(gameObject);
+        }
+    }
+    
 }

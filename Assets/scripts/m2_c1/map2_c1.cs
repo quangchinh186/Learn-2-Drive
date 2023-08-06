@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 
 public class map2_c1 : MonoBehaviour
 {
@@ -13,18 +14,23 @@ public class map2_c1 : MonoBehaviour
 
     public static bool isCompleted = false;
 
+
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other) {
         
     }
     void Start()
-    {
+    { 
+        //inGame = 
         playerPoint = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        
+
         playerPoint.text = playerScore.ToString() + "/" + maxPoint;
         if(playerScore <= maxPoint/2)
         {
@@ -33,9 +39,13 @@ public class map2_c1 : MonoBehaviour
         if(!isAlive)
         {
             Debug.Log("Im dead AF");
+            Task.Delay(5000);
+            InGameMenu.Instance.GameOver();
+            //
         }
         if(isCompleted) {
             Debug.Log("Chuyen scene");
+            InGameMenu.Instance.NextLevelLoader();
             //chuyen sang scene khac
         }
 

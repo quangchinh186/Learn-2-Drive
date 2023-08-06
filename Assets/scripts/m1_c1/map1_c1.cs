@@ -23,7 +23,7 @@ public class map1_c1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         playerPoint.text = playerScore.ToString() + "/" + maxPoint;
         if(playerScore <= maxPoint/2)
         {
@@ -32,8 +32,12 @@ public class map1_c1 : MonoBehaviour
         if(!isAlive)
         {
             Debug.Log("Im dead AF");
+            InGameMenu.Instance.GameOver();
+            //
         }
         if(isCompleted) {
+            Debug.Log("Chuyen scene");
+            InGameMenu.Instance.NextLevelLoader();
             //chuyen sang scene khac
         }
 
