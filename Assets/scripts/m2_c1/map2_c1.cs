@@ -39,13 +39,10 @@ public class map2_c1 : MonoBehaviour
         if(!isAlive)
         {
             Debug.Log("Im dead AF");
-            Task.Delay(5000);
-            InGameMenu.Instance.GameOver();
             //
         }
         if(isCompleted) {
             Debug.Log("Chuyen scene");
-            InGameMenu.Instance.NextLevelLoader();
             //chuyen sang scene khac
         }
 

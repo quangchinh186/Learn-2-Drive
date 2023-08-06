@@ -32,12 +32,10 @@ public class map1_c1 : MonoBehaviour
         if(!isAlive)
         {
             Debug.Log("Im dead AF");
-            InGameMenu.Instance.GameOver();
             //
         }
         if(isCompleted) {
             Debug.Log("Chuyen scene");
-            InGameMenu.Instance.NextLevelLoader();
             //chuyen sang scene khac
         }
 
