@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStat : MonoBehaviour
 {
@@ -9,10 +10,18 @@ public class PlayerStat : MonoBehaviour
     private bool helmetOn = false;
     public static bool isSignalLeft = false;
     public static bool isSignalRight = false;
+    public Text err;
+    static string errCollection; 
+    string lastError;
 
     void Start()
     {
         point = 0;
+        lastError = err.text;
+    }
+
+    public void showError(){
+        Debug.Log(errCollection);
     }
 
     public void wearHelmet(bool tog) {
@@ -38,5 +47,10 @@ public class PlayerStat : MonoBehaviour
     }
     private void Update() {
         Debug.Log("Stats" + isSignalRight);
+        if(err.text != lastError){
+            errCollection = errCollection + err.text + '\n';
+            lastError = err.text;
+            Debug.Log("error: " + errCollection);
+        }
     }
 }

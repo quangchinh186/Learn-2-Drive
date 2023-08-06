@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class check_forbidden : MonoBehaviour
 {
+
+    public Text text;
+
     bool enable = false;
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
             if (!enable) {
-                score_board_1.score -= 1;
+                map1_c1.playerScore -= 1;
                 enable = true;
+                text.text = "Recent error: In forbidden zone";
             }   
         }
     }

@@ -23,6 +23,7 @@ public class map1_c1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         playerPoint.text = playerScore.ToString() + "/" + maxPoint;
         if(playerScore <= maxPoint/2)
         {

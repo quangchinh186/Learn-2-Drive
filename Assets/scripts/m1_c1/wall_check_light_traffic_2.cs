@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class wall_check_light_traffic : MonoBehaviour
+public class wall_check_light_traffic_2 : MonoBehaviour
 {
     public Text text;
     private void OnTriggerEnter(Collider other) {
@@ -13,10 +13,8 @@ public class wall_check_light_traffic : MonoBehaviour
             Debug.Log("timeCounter is null");
             return;
         }
-        Debug.Log(ReturnDirection.direction(gameObject, other.gameObject));
-        if (ReturnDirection.direction(gameObject, other.gameObject) == "left") {
-            Debug.Log("hello");
-            if (lightControl.currentColor == 0) {
+        if (ReturnDirection.direction(gameObject, other.gameObject) == "right") {
+            if (lightControl.currentColor == 1) {
                 map1_c1.playerScore -= 1;
                 text.text = "Recent error: You just pass a redlight";
             }

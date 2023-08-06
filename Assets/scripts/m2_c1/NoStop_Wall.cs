@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NoStop_Wall : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class NoStop_Wall : MonoBehaviour
     public bool isEnabled;
     public GameObject player;
 
+    public Text text;
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Player" & !isEnabled)
@@ -19,7 +21,9 @@ public class NoStop_Wall : MonoBehaviour
             if(playerSpeed <= 0) 
             {
                 map2_c1.playerScore--;
+                text.text = "Recently error: Cant stop here man";
                 Debug.Log("Cant stop here man" + map2_c1.playerScore);
+
                 isEnabled = true;
             }
         }

@@ -9,6 +9,8 @@ TagManager:
   - moveToObject
   - mto1
   - traffic_light
+  - tl1
+  - tl2
   layers:
   - Default
   - TransparentFX

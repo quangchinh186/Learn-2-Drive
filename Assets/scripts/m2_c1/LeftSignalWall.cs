@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LeftSignalWall : MonoBehaviour
 {
@@ -9,13 +8,14 @@ public class LeftSignalWall : MonoBehaviour
     public bool isEnabled;
 
     public bool isRight;
-
+    public Text text;
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player")
         {
             //Debug.Log("PlayerStat.isSignalRight");
             if(PlayerStat.isSignalLeft == false && isEnabled == false)
             {
+                text.text = "Recently error: You forgort left signal";
                 map2_c1.playerScore--;
                 isEnabled = true;
             }

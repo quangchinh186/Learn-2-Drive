@@ -1,7 +1,8 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class wall_1 : MonoBehaviour {
   [SerializeField]
+  public Text text;
   bool car_1Move = false;
 
   private void triggerCar1() {
@@ -16,8 +17,9 @@ public class wall_1 : MonoBehaviour {
   }
 
   private void OnTriggerExit(Collider other) {
-    if (!wall_check_1.pass) {
-      score_board_1.score -= 1;
+    if (wall_check_1.check) {
+      map1_c1.playerScore -= 1;
+      text.text = "Recent mistake: You should wait for vehicle in priority road";
     }
   }
 
@@ -25,7 +27,6 @@ public class wall_1 : MonoBehaviour {
     if (car_1Move) {
       triggerCar1();
     }
-    Debug.Log("hai");
     Debug.Log(score_board_1.score);
   }
 }

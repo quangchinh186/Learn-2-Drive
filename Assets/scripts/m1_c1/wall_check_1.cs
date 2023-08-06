@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class wall_check_1 : MonoBehaviour
 {
+    public static bool check = false;
     public static bool pass = false;
-    GameObject car_1 = GameObject.FindGameObjectWithTag("car_1");
+    // GameObject car_1 = GameObject.FindGameObjectWithTag("car_1");
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "car_1") {
-            pass = false;
+            check = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.gameObject.tag == "car_1") {
+            check = false;
         }
     }
     // Start is called before the first frame update

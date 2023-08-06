@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NoTurnLeft_Wall : MonoBehaviour
 {
@@ -8,11 +9,11 @@ public class NoTurnLeft_Wall : MonoBehaviour
 
     public bool isEnabled;
 
-    
+    public Text text;
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player" & !isEnabled)
         {
-          
+            text.text = "Recently error: No turn left";
             map2_c1.playerScore--;
             Debug.Log("No turn left" + map2_c1.playerScore);
             isEnabled = true;

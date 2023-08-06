@@ -72,14 +72,16 @@ public class Control : MonoBehaviour
         {    
             if(speedOn)
             {
+                
                 eslapsedTime = eslapsedTime + Time.deltaTime > desiredDuration ? desiredDuration : eslapsedTime + Time.deltaTime;
                 float percentage = eslapsedTime / desiredDuration;
                 bonusSpeed = Mathf.Lerp(lowestSpeed, topBonusSpeed, curve.Evaluate(percentage));
+                lowestSpeed = bonusSpeed > 0 ? 0 : bonusSpeed;
             }
             if(brakeOn)
             {
                 bonusSpeed = bonusSpeed - 0.16f < -20 ? -20 :bonusSpeed - 0.16f;
-                eslapsedTime = bonusSpeed/topBonusSpeed * desiredDuration;
+                eslapsedTime = (bonusSpeed + 20)/topBonusSpeed * desiredDuration;
                 lowestSpeed = bonusSpeed;
                 if(bonusSpeed <= 0) 
                 {
