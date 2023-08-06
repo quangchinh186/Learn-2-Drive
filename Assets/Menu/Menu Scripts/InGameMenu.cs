@@ -6,9 +6,11 @@ public class InGameMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public static bool GameIsOver = false;
+    public static bool isNextLevel = false;
 
     public GameObject pauseMenuUI;
     public GameObject gameOverUI;
+    public GameObject nextLevelUI;
     // Update is called once per frame
     void Update()
     {
@@ -29,8 +31,28 @@ public class InGameMenu : MonoBehaviour
         {
             GameOver();
         }
+        //hit p to force to load next level ui
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            NextLevelLoader();
+        }
+    }
+    //show next level
+
+    public void NextLevelLoader()
+    {
+        //set the next level UI to active
+        Debug.Log("Next Level");
+        nextLevelUI.SetActive(true);
+        Time.timeScale = 0f;
+        isNextLevel = true;
+
+        //set the NextLevel-Canvas to active
+        GameObject nextLevelCanvas = GameObject.Find("NextLevel-Canvas");
+        nextLevelCanvas.SetActive(true);
     }
 
+    //show game over UI
     public void GameOver()
     {
         //set the game over UI to active
@@ -72,6 +94,16 @@ public class InGameMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Mode-1-Menu");
+    }
+
+    public void NextLevel()
+    {
+        //load the next index scene
+        Debug.Log("Next Level");
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        // UnityEngine.SceneManagement.SceneManager.LoadScene("Mode-1-Menu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(gameObject.scene.buildIndex + 1);
     }
 
     public void Restart()
